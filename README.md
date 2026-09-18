@@ -10,7 +10,7 @@ This project evaluates the financial performance of Square Pharmaceuticals and I
 
 Click the button below to open the dashboard:
 
-[Open Dashboard](index.html)
+[Open Dashboard](https://susmita001124.github.io/Financial-statement-Analysis/)
 
 This project includes a browser-based dashboard to present the analysis in a user-friendly format. To view it manually:
 
