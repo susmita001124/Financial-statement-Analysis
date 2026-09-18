@@ -6,6 +6,20 @@ A financial statement review and ratio analysis project based on the source work
 
 This project evaluates the financial performance of Square Pharmaceuticals and Ibn Sina Pharmaceuticals for FY2023 and FY2024 using the figures contained in the workbook. The analysis focuses on internal consistency across the raw data, calculation sheets, and key financial ratios used to compare company performance.
 
+## View in Browser
+
+Click the button below to open the dashboard:
+
+[Open Dashboard](index.html)
+
+This project includes a browser-based dashboard to present the analysis in a user-friendly format. To view it manually:
+
+1. Open the project folder.
+2. Double-click `index.html` or open it in a browser.
+3. Use the interactive dashboard to explore financial ratios, filter by category, and review company comparisons.
+
+The dashboard is designed to be viewed directly in a browser without any installation or server setup. It allows the user to navigate the ratio analysis visually and understand the results without opening the Excel file.
+
 ## Objective
 
 The main goal is to review whether the reported financial ratios are computed correctly from the underlying data and whether the balance sheet relationships are internally consistent. The review also identifies material discrepancies between the workbook’s calculated values and the recomputed values.
