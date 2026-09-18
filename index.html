@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Square vs Ibn Sina — Financial Statement Analysis, FY2023–FY2024</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF0F2; --panel:#FFFFFF; --ink:#17232D; --ink-2:#3A4B58; --muted:#61707D;
+  --rule:#D2DAE1; --rule-soft:#E4EAEF;
+  --sq:#1E6B58; --sq-soft:#D6E6E0; --ib:#B05B24; --ib-soft:#F2E1D3;
+  --flag:#9C3227; --flag-soft:#F4DEDB;
+  --shade:#F5F7F9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101619; --panel:#182126; --ink:#E7EDF0; --ink-2:#BCC9D1; --muted:#8CA0AC;
+    --rule:#2B383F; --rule-soft:#232E34;
+    --sq:#5FBBA0; --sq-soft:#1D3730; --ib:#E0955C; --ib-soft:#3A2A1C;
+    --flag:#E08A7E; --flag-soft:#3A2321; --shade:#141C20;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101619; --panel:#182126; --ink:#E7EDF0; --ink-2:#BCC9D1; --muted:#8CA0AC;
+  --rule:#2B383F; --rule-soft:#232E34;
+  --sq:#5FBBA0; --sq-soft:#1D3730; --ib:#E0955C; --ib-soft:#3A2A1C;
+  --flag:#E08A7E; --flag-soft:#3A2321; --shade:#141C20;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:70px}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size:16px; line-height:1.6; font-variant-numeric:tabular-nums;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:1060px; margin:0 auto; padding:0 22px}
+h1,h2,h3{font-family:"Newsreader", Georgia, serif; font-weight:500; line-height:1.15; margin:0}
+a{color:inherit}
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky; top:0; z-index:40; background:color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--rule);
+}
+nav .wrap{display:flex; align-items:center; gap:4px; height:54px; overflow-x:auto; scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav .brand{font-family:"Newsreader",serif; font-size:17px; margin-right:auto; white-space:nowrap; padding-right:14px}
+nav a.nl{
+  text-decoration:none; color:var(--muted); font-size:13.5px; padding:6px 10px;
+  border-radius:4px; white-space:nowrap;
+}
+nav a.nl:hover{color:var(--ink); background:var(--rule-soft)}
+#themeBtn{
+  border:1px solid var(--rule); background:transparent; color:var(--muted);
+  border-radius:4px; padding:5px 9px; font:inherit; font-size:13px; cursor:pointer; margin-left:6px;
+}
+#themeBtn:hover{color:var(--ink)}
+
+/* ---------- hero ---------- */
+header{padding:56px 0 40px; border-bottom:1px solid var(--rule)}
+.kicker{font-size:13px; color:var(--muted); margin:0 0 14px}
+h1{font-size:clamp(30px,5.2vw,52px); letter-spacing:-.015em; max-width:17ch}
+.standfirst{max-width:62ch; color:var(--ink-2); margin:20px 0 0; font-size:17.5px}
+
+.scalebar{margin-top:38px}
+.sbrow{display:grid; grid-template-columns:130px 1fr; gap:14px; align-items:center; margin-bottom:12px}
+.sblabel{font-size:13.5px; color:var(--muted); text-align:right}
+.sbtrack{height:30px; position:relative; display:flex; align-items:center; gap:10px}
+.sbfill{height:30px; border-radius:2px}
+.sbval{font-size:13.5px; color:var(--ink-2); white-space:nowrap}
+.sbnote{font-size:13.5px; color:var(--muted); margin-top:18px; max-width:60ch}
+
+/* ---------- sections ---------- */
+section{padding:52px 0; border-bottom:1px solid var(--rule)}
+h2{font-size:clamp(23px,3.4vw,32px); letter-spacing:-.01em}
+.lede{color:var(--ink-2); max-width:64ch; margin:14px 0 0}
+.eyebrow{font-size:12.5px; color:var(--muted); margin:0 0 8px}
+
+/* ---------- company cards ---------- */
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:18px; margin-top:30px}
+.card{background:var(--panel); border:1px solid var(--rule); border-radius:6px; padding:22px 22px 18px}
+.card.sq{border-top:3px solid var(--sq)}
+.card.ib{border-top:3px solid var(--ib)}
+.card h3{font-size:21px; margin-bottom:3px}
+.card .sub{font-size:13px; color:var(--muted); margin-bottom:16px}
+.kv{display:flex; justify-content:space-between; gap:12px; padding:7px 0; border-top:1px solid var(--rule-soft); font-size:14.5px}
+.kv:first-of-type{border-top:0}
+.kv span:first-child{color:var(--muted)}
+.kv b{font-weight:500}
+.delta{font-size:12.5px; margin-left:6px}
+.up{color:var(--sq)} .down{color:var(--flag)}
+:root[data-theme="dark"] .up, :root:not([data-theme="light"]) .up{}
+
+/* ---------- controls ---------- */
+.controls{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:28px 0 6px}
+#q{
+  flex:1 1 230px; min-width:180px; padding:9px 12px; font:inherit; font-size:14.5px;
+  border:1px solid var(--rule); border-radius:5px; background:var(--panel); color:var(--ink);
+}
+#q:focus{outline:2px solid var(--sq); outline-offset:1px}
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{
+  border:1px solid var(--rule); background:var(--panel); color:var(--muted);
+  padding:7px 12px; border-radius:20px; font:inherit; font-size:13.5px; cursor:pointer;
+}
+.chip:hover{color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+.chip:focus-visible{outline:2px solid var(--sq); outline-offset:2px}
+.count{font-size:13px; color:var(--muted); margin:14px 0 0}
+
+/* ---------- ratio rows ---------- */
+.rlist{margin-top:14px; border-top:1px solid var(--rule)}
+.ritem{border-bottom:1px solid var(--rule); background:var(--panel)}
+.rhead{
+  width:100%; display:grid; grid-template-columns:1fr auto; gap:14px; align-items:center;
+  background:none; border:0; font:inherit; color:inherit; text-align:left;
+  padding:16px 18px; cursor:pointer;
+}
+.rhead:hover{background:var(--shade)}
+.rhead:focus-visible{outline:2px solid var(--sq); outline-offset:-2px}
+.rname{font-size:16.5px; font-weight:500; display:flex; align-items:center; gap:9px; flex-wrap:wrap}
+.tag{font-size:11.5px; color:var(--muted); border:1px solid var(--rule); border-radius:3px; padding:1px 7px; font-weight:400}
+.tag.fix{color:var(--flag); border-color:var(--flag); background:var(--flag-soft)}
+.rformula{font-size:13px; color:var(--muted); margin-top:3px}
+.rnums{display:flex; gap:22px; align-items:baseline}
+.pair{text-align:right; min-width:88px}
+.pair .co{font-size:11.5px; color:var(--muted); display:block; margin-bottom:1px}
+.pair .now{font-size:17px; font-weight:500}
+.pair.sqc .now{color:var(--sq)} .pair.ibc .now{color:var(--ib)}
+.pair .then{font-size:12.5px; color:var(--muted); margin-left:5px}
+.caret{color:var(--muted); font-size:12px; margin-left:4px}
+.rbody{display:none; padding:2px 18px 22px; border-top:1px solid var(--rule-soft)}
+.ritem.open .rbody{display:block}
+.rbody p{margin:16px 0 0; max-width:66ch; color:var(--ink-2); font-size:15px}
+.minitable{width:100%; border-collapse:collapse; margin-top:16px; font-size:14px}
+.minitable th{text-align:right; font-weight:500; color:var(--muted); font-size:12.5px; padding:5px 10px; border-bottom:1px solid var(--rule)}
+.minitable th:first-child{text-align:left}
+.minitable td{text-align:right; padding:7px 10px; border-bottom:1px solid var(--rule-soft)}
+.minitable td:first-child{text-align:left; color:var(--muted)}
+.wbnote{margin-top:14px; background:var(--flag-soft); border-left:3px solid var(--flag); padding:12px 14px; font-size:14px; color:var(--ink-2); border-radius:0 4px 4px 0}
+.wbnote b{color:var(--flag); font-weight:600}
+
+/* ---------- charts ---------- */
+.charts{display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr)); gap:18px; margin-top:30px}
+.chartbox{background:var(--panel); border:1px solid var(--rule); border-radius:6px; padding:20px}
+.chartbox h3{font-size:18px; margin-bottom:2px}
+.chartbox .cap{font-size:13px; color:var(--muted); margin:4px 0 14px; max-width:46ch}
+.chartbox svg{width:100%; height:auto; display:block; overflow:visible}
+.legend{display:flex; gap:16px; font-size:12.5px; color:var(--muted); margin-top:12px; flex-wrap:wrap}
+.swatch{display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:6px; vertical-align:-1px}
+
+/* ---------- dupont ---------- */
+.dupont{overflow-x:auto; margin-top:26px}
+.dupont table{width:100%; border-collapse:collapse; font-size:14.5px; min-width:560px}
+.dupont th{text-align:right; font-weight:500; font-size:12.5px; color:var(--muted); padding:8px 12px; border-bottom:1px solid var(--rule)}
+.dupont th:first-child{text-align:left}
+.dupont td{text-align:right; padding:10px 12px; border-bottom:1px solid var(--rule-soft)}
+.dupont td:first-child{text-align:left}
+.dupont tr.total td{border-top:1px solid var(--rule); border-bottom:0; font-weight:500}
+.dupont .mul{color:var(--muted)}
+
+/* ---------- findings ---------- */
+.findings{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px; margin-top:28px}
+.fbox{background:var(--panel); border:1px solid var(--rule); border-radius:6px; padding:22px}
+.fbox h3{font-size:18px; margin-bottom:12px}
+.fbox ol, .fbox ul{margin:0; padding-left:20px}
+.fbox li{margin-bottom:11px; font-size:14.5px; color:var(--ink-2)}
+.fbox li:last-child{margin-bottom:0}
+.fbox li b{color:var(--ink); font-weight:500}
+.fbox.alert{border-left:3px solid var(--flag)}
+
+footer{padding:38px 0 60px; color:var(--muted); font-size:13.5px}
+footer p{margin:0 0 8px; max-width:70ch}
+.stamp{font-size:13px; color:var(--muted)}
+
+@media (max-width:620px){
+  .rhead{grid-template-columns:1fr; gap:12px}
+  .rnums{justify-content:flex-start; gap:28px}
+  .sbrow{grid-template-columns:1fr; gap:4px}
+  .sblabel{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">Square <span style="color:var(--muted)">vs</span> Ibn Sina</span>
+    <a class="nl" href="#scale">Scale</a>
+    <a class="nl" href="#ratios">Ratios</a>
+    <a class="nl" href="#charts">Charts</a>
+    <a class="nl" href="#dupont">DuPont</a>
+    <a class="nl" href="#findings">Findings</a>
+    <button id="themeBtn" type="button">Dark</button>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <p class="kicker">Financial statement analysis · FY2023 and FY2024 · figures in Bangladeshi taka</p>
+    <h1>One company is 17 times bigger. The smaller one pays its owners more.</h1>
+    <p class="standfirst">Square Pharmaceuticals earns 27% more on every taka of assets than Ibn Sina does. Ibn Sina still returns more to shareholders — 19.0% against 14.7% — because it runs its balance sheet twice as hard and borrows to do it. Every figure below was recomputed from the source workbook rather than copied from it.</p>
+
+    <div class="scalebar" id="scalebar"></div>
+  </div>
+</header>
+
+<section id="scale">
+  <div class="wrap">
+    <p class="eyebrow">FY2024, with the year-on-year change</p>
+    <h2>What each balance sheet is made of</h2>
+    <p class="lede">Square's assets are mostly cash — 52.3bn of its 69.7bn current assets, or 75%. That idle cash is the single biggest reason its asset turnover looks weak next to a company a fraction of its size.</p>
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<section id="ratios">
+  <div class="wrap">
+    <p class="eyebrow">Twelve ratios, four company-years</p>
+    <h2>Ratio explorer</h2>
+    <p class="lede">Search by name or formula, filter by category, and open any row for the full four-year grid and what it means. Large figures show FY2024 with FY2023 beside it in grey.</p>
+
+    <div class="controls">
+      <input id="q" type="search" placeholder="Search ratios — try &ldquo;equity&rdquo; or &ldquo;revenue&rdquo;" autocomplete="off" aria-label="Search ratios">
+      <div class="chips" id="chips"></div>
+    </div>
+    <p class="count" id="count"></p>
+    <div class="rlist" id="rlist"></div>
+  </div>
+</section>
+
+<section id="charts">
+  <div class="wrap">
+    <p class="eyebrow">The workbook&rsquo;s six charts, rebuilt</p>
+    <h2>Charts</h2>
+    <p class="lede">The same series as the source workbook, drawn flat rather than in 3D. The original sheet uses three 3D bar charts and a 3D pie; perspective distorts bar height and slice area, which works against the comparison each chart exists to make.</p>
+    <div class="charts" id="charts"></div>
+  </div>
+</section>
+
+<section id="dupont">
+  <div class="wrap">
+    <p class="eyebrow">Return on equity, decomposed</p>
+    <h2>Where the returns actually come from</h2>
+    <p class="lede">DuPont splits ROE into three things a manager can act on: margin, how hard assets work, and how much of the balance sheet is borrowed. Multiply the three and the result must land exactly on ROE. That identity is what exposed the error in the 2023 row.</p>
+    <div class="dupont" id="dupont"></div>
+  </div>
+</section>
+
+<section id="findings">
+  <div class="wrap">
+    <p class="eyebrow">What holds up, and what does not</p>
+    <h2>Findings</h2>
+    <div class="findings" id="findings"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>Source.</b> Every figure comes from the <i>Raw Data</i> sheet of Financial_Statement_Analysis.xlsx. Ratios were recomputed independently from those figures; where a recomputed value differs from the workbook, both are shown and the row is marked Corrected.</p>
+    <p><b>Refreshing.</b> This page is static. The figures live inside the file, so it does not read the spreadsheet at runtime and will not pick up later edits to it. Updating means editing the <code>DATA</code> block in this file and mirroring the change in <code>data.json</code>.</p>
+    <p class="stamp" id="stamp"></p>
+  </div>
+</footer>
+
+<script>
+const DATA = {
+  companies: {
+    SQ: { name:"Square Pharmaceuticals", short:"Square", color:"var(--sq)",
+      y:{ 2024:{nca:42273928338,ca:69735986410,ta:112009914748,cl:5589045579,ncl:625749549,tl:6214795128,te:105795119620,cash:52305603356,rev:59794584816,gp:27267821084,op:15960600763,pbt:19887843068,np:15591371906,fin:27943,sh:886451010},
+          2023:{nca:34585613547,ca:70169514926,ta:104755128473,cl:3212077810,ncl:1026086605,tl:4238164415,te:100516964058,cash:50079192249,rev:58419084978,gp:28034308091,op:17874695253,pbt:21097122423,np:16470227513,fin:21966,sh:886451010} } },
+    IB: { name:"Ibn Sina Pharmaceuticals", short:"Ibn Sina", color:"var(--ib)",
+      y:{ 2024:{nca:3888791104,ca:2620323446,ta:6509114550,cl:2318099470,ncl:657654587,tl:2975754057,te:3533360493,cash:365229893,rev:11370922344,gp:4531507148,op:960060692,pbt:894698822,np:671350473,fin:53580520,sh:31243627},
+          2023:{nca:3169096180,ca:1836444762,ta:5005540942,cl:1461481620,ncl:488243171,tl:1949724791,te:3055816151,cash:365229893,rev:9125331307,gp:3871099631,op:860364720,pbt:804731983,np:605808719,fin:44431461,sh:31243627} } }
+  },
+  ratios: [
+    {key:"cr",name:"Current ratio",group:"Liquidity",formula:"Current assets ÷ Current liabilities",unit:"x",status:"verified",
+     v:{SQ:{2023:21.845521521161405,2024:12.477262069935966},IB:{2023:1.2565637069045041,2024:1.1303757582067866}},
+     reading:"Square holds about 12.5 taka of current assets for every taka of current liabilities, down from 21.8 — current liabilities rose 74% while current assets edged slightly down. Even at 12.5 this is far above any working-capital need; it reads as cash that has no assigned use rather than prudence. Ibn Sina sits just above 1.1 and falling, meaning almost everything it owns short-term is already claimed by what it owes short-term."},
+    {key:"gpm",name:"Gross profit margin",group:"Profitability",formula:"Gross profit ÷ Revenue",unit:"%",status:"verified",
+     v:{SQ:{2023:0.47988269760742436,2024:0.45602492546622048},IB:{2023:0.4242146943235362,2024:0.39851711329214229}},
+     reading:"Both companies gave up 2.4 to 2.6 percentage points of gross margin in the same year. When two competitors move together by a similar amount, the cause is usually shared — input costs, currency, or regulated pricing — rather than anything specific to either firm."},
+    {key:"opm",name:"Operating profit margin",group:"Profitability",formula:"Operating profit ÷ Revenue",unit:"%",status:"verified",
+     v:{SQ:{2023:0.30597355743814575,2024:0.26692384957791726},IB:{2023:0.094283121462123587,2024:0.08443120645411735}},
+     reading:"Square keeps about 27 paisa of operating profit per taka of sales against Ibn Sina's 8. Note that Square's operating margin fell 3.9 points while its gross margin fell only 2.4 — the extra 1.5 points went to operating expenses growing faster than revenue, which is a cost-control question rather than a pricing one."},
+    {key:"npm",name:"Net profit margin",group:"Profitability",formula:"Net profit ÷ Revenue",unit:"%",status:"corrected",
+     v:{SQ:{2023:0.2819321166113355,2024:0.2607488948033973},IB:{2023:0.0663875862277227,2024:0.059040986534768303}},
+     wb:{SQ:{2023:0.36113407854547791}},
+     wbnote:"The workbook shows <b>36.11%</b> for Square in 2023. That is profit before tax ÷ revenue (21,097,122,423 ÷ 58,419,084,978), not net profit ÷ revenue. The correct figure is <b>28.19%</b>. This one cell also feeds the DuPont row below it.",
+     reading:"With the correction in place, Square's net margin softened by 2.1 points rather than improving, which is consistent with what happened at the gross and operating lines. Ibn Sina lost 0.7 points from an already thin base."},
+    {key:"dr",name:"Debt ratio",group:"Leverage",formula:"Total liabilities ÷ Total assets",unit:"%",status:"verified",
+     v:{SQ:{2023:0.040457822703089528,2024:0.055484330489689697},IB:{2023:0.38951330407477863,2024:0.45716725894768589}},
+     reading:"Creditors fund about 5.5% of Square's balance sheet and 45.7% of Ibn Sina's. Both rose, but Ibn Sina added 6.8 percentage points in twelve months — with its current ratio at 1.13, that is the pairing worth watching."},
+    {key:"de",name:"Debt-to-equity ratio",group:"Leverage",formula:"Total liabilities ÷ Total equity",unit:"x",status:"verified",
+     v:{SQ:{2023:0.042163673114465602,2024:0.058743684494356643},IB:{2023:0.63803733426893583,2024:0.84218807078850755}},
+     reading:"Ibn Sina now owes 0.84 taka per taka of equity, up from 0.64 — a 32% increase in one year. Square is effectively unlevered: its entire finance cost in 2024 was 27,943 taka, against operating profit of 15.96 billion."},
+    {key:"tat",name:"Total asset turnover",group:"Efficiency",formula:"Revenue ÷ Total assets",unit:"x",status:"verified",
+     v:{SQ:{2023:0.55767279205864528,2024:0.53383296425611881},IB:{2023:1.8230459829889849,2024:1.7469230655957653}},
+     reading:"Ibn Sina produces 3.3 times more revenue per taka of assets. Before reading that as superior management, note that 75% of Square's current assets are cash. Cash sits on the denominator and generates no revenue, so a large part of this gap is a capital-allocation choice rather than an operating failure."},
+    {key:"roe",name:"Return on equity",group:"Returns",formula:"Net profit ÷ Total equity",unit:"%",status:"verified",
+     v:{SQ:{2023:0.16385520262526432,2024:0.14737326222610117},IB:{2023:0.19824776395718446,2024:0.19000339035035449}},
+     reading:"The central reversal in this comparison. The company with a quarter of the margin returns four percentage points more to its shareholders. The DuPont section shows exactly how — and how much of it is borrowed."},
+    {key:"roa",name:"Return on assets",group:"Returns",formula:"Net profit ÷ Total assets",unit:"%",status:"verified",
+     v:{SQ:{2023:0.15722597788847256,2024:0.13919635543940445},IB:{2023:0.12102762239278474,2024:0.10314006119311574}},
+     reading:"Remove leverage and the ranking flips back: Square earns 13.9% on assets against Ibn Sina's 10.3%. Reading ROE and ROA together is the point — Ibn Sina's shareholder return advantage comes from its capital structure, not from running a better business."},
+    {key:"eps",name:"Earnings per share",group:"Returns",formula:"Net profit ÷ Ordinary shares outstanding",unit:"BDT",status:"verified",
+     v:{SQ:{2023:18.579963615812225,2024:17.588531943801385},IB:{2023:19.38983329304245,2024:21.487597230628825}},
+     reading:"Ibn Sina's EPS is higher only because it has 31.2 million shares to Square's 886.5 million. EPS is not comparable across companies with different share counts — it is a company-versus-its-own-past measure. On that basis Ibn Sina grew EPS 10.8% while Square's fell 5.3%."},
+    {key:"em",name:"Equity multiplier",group:"Leverage",formula:"Total assets ÷ Total equity",unit:"x",status:"verified",
+     v:{SQ:{2023:1.0421636731144657,2024:1.0587436844943567},IB:{2023:1.6380373342689358,2024:1.8421880707885077}},
+     reading:"Ibn Sina's assets are 1.84 times its equity and climbing fast; Square's are barely above 1.0. This is the DuPont term doing the heavy lifting in Ibn Sina's ROE."},
+    {key:"dup",name:"DuPont ROE",group:"Returns",formula:"Net profit margin × Total asset turnover × Equity multiplier",unit:"%",status:"corrected",
+     v:{SQ:{2023:0.16385520262526432,2024:0.1473732622261012},IB:{2023:0.19824776395718446,2024:0.19000339035035449}},
+     wb:{SQ:{2023:0.20988618807494624}},
+     wbnote:"The workbook shows <b>20.99%</b> for Square in 2023 against a directly calculated ROE of <b>16.39%</b> in the row above it. DuPont is an identity — it must reconcile to ROE exactly — so the 4.6-point gap was the tell. The bad input was the 2023 net profit margin. With that fixed, all four company-years reconcile to the decimal.",
+     reading:"The gap is worth treating as a standing check: whenever DuPont and directly calculated ROE disagree, one of the three inputs is wrong. It is the cheapest self-test available in ratio analysis, and it caught this one."}
+  ]
+};
+
+/* ---------- formatting ---------- */
+const bn = n => (n/1e9).toFixed(2) + "bn";
+const fmt = (v,u) => u === "%" ? (v*100).toFixed(2) + "%" : u === "x" ? v.toFixed(2) + "×" : v.toFixed(2);
+const pct = (a,b) => { const d = (a/b - 1) * 100; return (d>=0?"+":"") + d.toFixed(1) + "%"; };
+
+/* ---------- hero scale bars ---------- */
+(function(){
+  const rows = [
+    {label:"Total assets", k:"ta"},
+    {label:"Revenue", k:"rev"},
+    {label:"Net profit", k:"np"}
+  ];
+  const el = document.getElementById("scalebar");
+  el.innerHTML = rows.map(r=>{
+    const s = DATA.companies.SQ.y[2024][r.k], i = DATA.companies.IB.y[2024][r.k];
+    const max = s;
+    return `<div class="sbrow"><div class="sblabel">${r.label}</div>
+      <div><div class="sbtrack"><div class="sbfill" style="width:${(s/max*72).toFixed(1)}%;background:var(--sq)"></div><span class="sbval">Square ${bn(s)}</span></div>
+      <div class="sbtrack"><div class="sbfill" style="width:${Math.max(i/max*72,0.6).toFixed(2)}%;background:var(--ib)"></div><span class="sbval">Ibn Sina ${bn(i)}</span></div></div></div>`;
+  }).join("");
+  el.insertAdjacentHTML("beforeend",
+    `<p class="sbnote">Square's total assets are 17.2 times Ibn Sina's; its revenue only 5.3 times. That mismatch is the whole story of the turnover and return ratios below.</p>`);
+})();
+
+/* ---------- company cards ---------- */
+(function(){
+  const rows = [["Total assets","ta"],["Total equity","te"],["Total liabilities","tl"],["Cash & equivalents","cash"],["Revenue","rev"],["Operating profit","op"],["Net profit","np"],["Finance cost","fin"]];
+  document.getElementById("cards").innerHTML = ["SQ","IB"].map(id=>{
+    const c = DATA.companies[id], a = c.y[2024], b = c.y[2023];
+    const body = rows.map(([lab,k])=>{
+      const d = a[k]/b[k]-1;
+      const cls = d>=0 ? "up":"down";
+      const val = k==="fin" ? a[k].toLocaleString()+" BDT" : bn(a[k]);
+      return `<div class="kv"><span>${lab}</span><b>${val}<span class="delta ${cls}">${pct(a[k],b[k])}</span></b></div>`;
+    }).join("");
+    const extra = id==="SQ"
+      ? `<div class="kv"><span>Cash as share of current assets</span><b>75.0%</b></div><div class="kv"><span>Effective tax rate</span><b>21.6%</b></div>`
+      : `<div class="kv"><span>Cash as share of current assets</span><b>13.9%</b></div><div class="kv"><span>Effective tax rate</span><b>25.0%</b></div>`;
+    return `<div class="card ${id.toLowerCase()}"><h3>${c.name}</h3>
+      <div class="sub">FY2024, change against FY2023</div>${body}${extra}</div>`;
+  }).join("");
+})();
+
+/* ---------- ratio explorer ---------- */
+const groups = [...new Set(DATA.ratios.map(r=>r.group))];
+let active = "All", query = "";
+
+document.getElementById("chips").innerHTML =
+  ["All",...groups].map(g=>`<button class="chip" type="button" data-g="${g}" aria-pressed="${g==="All"}">${g}</button>`).join("");
+
+function ratioRow(r){
+  const s24=r.v.SQ[2024], s23=r.v.SQ[2023], i24=r.v.IB[2024], i23=r.v.IB[2023];
+  const tag = r.status==="corrected" ? `<span class="tag fix">Corrected</span>` : `<span class="tag">${r.group}</span>`;
+  const wb = r.wbnote ? `<div class="wbnote">${r.wbnote}</div>` : "";
+  return `<div class="ritem" data-key="${r.key}">
+    <button class="rhead" type="button" aria-expanded="false">
+      <span><span class="rname">${r.name}${tag}</span><span class="rformula">${r.formula}</span></span>
+      <span class="rnums">
+        <span class="pair sqc"><span class="co">Square</span><span class="now">${fmt(s24,r.unit)}</span><span class="then">${fmt(s23,r.unit)}</span></span>
+        <span class="pair ibc"><span class="co">Ibn Sina</span><span class="now">${fmt(i24,r.unit)}</span><span class="then">${fmt(i23,r.unit)}</span></span>
+        <span class="caret">▾</span>
+      </span>
+    </button>
+    <div class="rbody">
+      <table class="minitable">
+        <tr><th>Company</th><th>FY2023</th><th>FY2024</th><th>Change</th></tr>
+        <tr><td>Square Pharmaceuticals</td><td>${fmt(s23,r.unit)}</td><td>${fmt(s24,r.unit)}</td><td>${pct(s24,s23)}</td></tr>
+        <tr><td>Ibn Sina Pharmaceuticals</td><td>${fmt(i23,r.unit)}</td><td>${fmt(i24,r.unit)}</td><td>${pct(i24,i23)}</td></tr>
+      </table>
+      ${wb}
+      <p>${r.reading}</p>
+    </div></div>`;
+}
+
+function render(){
+  const q = query.trim().toLowerCase();
+  const list = DATA.ratios.filter(r=>
+    (active==="All" || r.group===active) &&
+    (!q || (r.name+" "+r.formula+" "+r.group).toLowerCase().includes(q)));
+  const el = document.getElementById("rlist");
+  el.innerHTML = list.length ? list.map(ratioRow).join("")
+    : `<div style="padding:34px 18px;background:var(--panel);border-bottom:1px solid var(--rule);color:var(--muted)">No ratio matches that. Clear the search or pick a different category.</div>`;
+  document.getElementById("count").textContent =
+    `Showing ${list.length} of ${DATA.ratios.length} ratios${active!=="All"?" in "+active:""}.`;
+  el.querySelectorAll(".rhead").forEach(b=>b.addEventListener("click",()=>{
+    const it=b.closest(".ritem"); const open=it.classList.toggle("open");
+    b.setAttribute("aria-expanded", open);
+    b.querySelector(".caret").textContent = open ? "▴" : "▾";
+  }));
+}
+document.getElementById("q").addEventListener("input", e=>{query=e.target.value; render();});
+document.getElementById("chips").addEventListener("click", e=>{
+  const b=e.target.closest(".chip"); if(!b) return;
+  active=b.dataset.g;
+  document.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed", c===b));
+  render();
+});
+render();
+
+/* ---------- charts ---------- */
+function groupedBars(series, unit, maxOverride){
+  const W=440,H=210,PL=44,PR=8,PT=10,PB=30;
+  const cats=["FY2023","FY2024"];
+  const max=maxOverride||Math.max(...series.flatMap(s=>s.vals))*1.18;
+  const iw=W-PL-PR, ih=H-PT-PB, gw=iw/cats.length;
+  let g="";
+  [0,.25,.5,.75,1].forEach(t=>{
+    const y=PT+ih-ih*t;
+    g+=`<line x1="${PL}" y1="${y}" x2="${W-PR}" y2="${y}" stroke="var(--rule-soft)" stroke-width="1"/>
+        <text x="${PL-8}" y="${y+4}" text-anchor="end" font-size="10.5" fill="var(--muted)">${unit==="%"?(max*t*100).toFixed(0)+"%":(max*t).toFixed(max<3?1:0)}</text>`;
+  });
+  cats.forEach((c,ci)=>{
+    const bw=gw/(series.length+1.1);
+    series.forEach((s,si)=>{
+      const v=s.vals[ci], h=Math.max(ih*(v/max),1);
+      const x=PL+gw*ci+gw/2-(series.length*bw)/2+si*bw;
+      g+=`<rect x="${x}" y="${PT+ih-h}" width="${bw-4}" height="${h}" fill="${s.color}" rx="1.5"/>
+          <text x="${x+(bw-4)/2}" y="${PT+ih-h-5}" text-anchor="middle" font-size="10.5" fill="var(--ink-2)">${unit==="%"?(v*100).toFixed(1):v.toFixed(2)}</text>`;
+    });
+    g+=`<text x="${PL+gw*ci+gw/2}" y="${H-10}" text-anchor="middle" font-size="11.5" fill="var(--muted)">${c}</text>`;
+  });
+  g+=`<line x1="${PL}" y1="${PT+ih}" x2="${W-PR}" y2="${PT+ih}" stroke="var(--rule)" stroke-width="1"/>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img">${g}</svg>`;
+}
+function lines(series, unit){
+  const W=440,H=210,PL=44,PR=22,PT=12,PB=30;
+  const max=Math.max(...series.flatMap(s=>s.vals))*1.25;
+  const iw=W-PL-PR, ih=H-PT-PB;
+  const X=i=>PL+iw*(i/(1));
+  const Y=v=>PT+ih-ih*(v/max);
+  let g="";
+  [0,.25,.5,.75,1].forEach(t=>{
+    const y=PT+ih-ih*t;
+    g+=`<line x1="${PL}" y1="${y}" x2="${W-PR}" y2="${y}" stroke="var(--rule-soft)"/>
+        <text x="${PL-8}" y="${y+4}" text-anchor="end" font-size="10.5" fill="var(--muted)">${unit==="%"?(max*t*100).toFixed(0)+"%":(max*t).toFixed(1)}</text>`;
+  });
+  series.forEach(s=>{
+    g+=`<polyline points="${s.vals.map((v,i)=>X(i)+","+Y(v)).join(" ")}" fill="none" stroke="${s.color}" stroke-width="2.2"/>`;
+    s.vals.forEach((v,i)=>{
+      g+=`<circle cx="${X(i)}" cy="${Y(v)}" r="4" fill="${s.color}"/>
+          <text x="${X(i)}" y="${Y(v)-11}" text-anchor="${i===0?"start":"end"}" font-size="10.5" fill="var(--ink-2)">${unit==="%"?(v*100).toFixed(1)+"%":v.toFixed(2)}</text>`;
+    });
+  });
+  ["FY2023","FY2024"].forEach((c,i)=>{
+    g+=`<text x="${X(i)}" y="${H-10}" text-anchor="${i===0?"start":"end"}" font-size="11.5" fill="var(--muted)">${c}</text>`;
+  });
+  g+=`<line x1="${PL}" y1="${PT+ih}" x2="${W-PR}" y2="${PT+ih}" stroke="var(--rule)"/>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img">${g}</svg>`;
+}
+function stackedCapital(){
+  const W=440,H=200,PL=10,PT=22,BH=44;
+  let g="";
+  [["SQ",0],["IB",1]].forEach(([id,row])=>{
+    const c=DATA.companies[id], d=c.y[2024];
+    const y=PT+row*(BH+56), iw=W-PL-20;
+    const ew=iw*(d.te/d.ta), lw=iw*(d.tl/d.ta);
+    g+=`<text x="${PL}" y="${y-6}" font-size="12" fill="var(--muted)">${c.name}</text>
+        <rect x="${PL}" y="${y}" width="${ew}" height="${BH}" fill="${c.color}" rx="2"/>
+        <rect x="${PL+ew}" y="${y}" width="${lw}" height="${BH}" fill="var(--rule)" rx="2"/>
+        <text x="${PL+8}" y="${y+27}" font-size="12.5" fill="var(--bg)">Equity ${(d.te/d.ta*100).toFixed(1)}%</text>
+        <text x="${PL+ew+lw-6}" y="${y+BH+16}" text-anchor="end" font-size="11.5" fill="var(--muted)">Liabilities ${(d.tl/d.ta*100).toFixed(1)}%</text>`;
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" role="img">${g}</svg>`;
+}
+const SQC="var(--sq)", IBC="var(--ib)";
+const R = k => ({sq: [DATA.ratios.find(r=>r.key===k).v.SQ[2023], DATA.ratios.find(r=>r.key===k).v.SQ[2024]],
+                 ib: [DATA.ratios.find(r=>r.key===k).v.IB[2023], DATA.ratios.find(r=>r.key===k).v.IB[2024]]});
+function box(title,cap,svg,legend=true){
+  return `<div class="chartbox"><h3>${title}</h3><p class="cap">${cap}</p>${svg}
+    ${legend?`<div class="legend"><span><span class="swatch" style="background:var(--sq)"></span>Square</span><span><span class="swatch" style="background:var(--ib)"></span>Ibn Sina</span></div>`:""}</div>`;
+}
+const cr=R("cr"), dr=R("dr"), roe=R("roe"), roa=R("roa"), npm=R("npm");
+document.getElementById("charts").innerHTML = [
+  box("Current ratio","Square's short-term cushion is so large the chart can barely show Ibn Sina on the same axis — which is itself the finding.",
+      groupedBars([{vals:cr.sq,color:SQC},{vals:cr.ib,color:IBC}],"x")),
+  box("Debt ratio","Both rose. Ibn Sina&rsquo;s 6.8-point jump in a single year is the movement that needs explaining.",
+      lines([{vals:dr.sq,color:SQC},{vals:dr.ib,color:IBC}],"%")),
+  box("Return on equity","Ibn Sina ahead in both years, despite a quarter of the margin.",
+      groupedBars([{vals:roe.sq,color:SQC},{vals:roe.ib,color:IBC}],"%")),
+  box("Return on assets","The same two companies, leverage removed. The ranking inverts.",
+      groupedBars([{vals:roa.sq,color:SQC},{vals:roa.ib,color:IBC}],"%")),
+  box("Net profit margin","Shown with the corrected 2023 figure for Square (28.19%, not the 36.11% in the sheet).",
+      groupedBars([{vals:npm.sq,color:SQC},{vals:npm.ib,color:IBC}],"%")),
+  box("Capital structure, FY2024","Replaces the 3D pie. Coloured band is equity, grey is liabilities, as a share of total assets.",
+      stackedCapital(), false)
+].join("");
+
+/* ---------- dupont ---------- */
+(function(){
+  const rows=[["SQ",2023],["SQ",2024],["IB",2023],["IB",2024]];
+  const g=k=>DATA.ratios.find(r=>r.key===k);
+  const body=rows.map(([id,y])=>{
+    const m=g("npm").v[id][y], t=g("tat").v[id][y], e=g("em").v[id][y], roeV=g("roe").v[id][y];
+    const flag = id==="SQ"&&y===2023 ? ` <span class="tag fix">corrected</span>` : "";
+    return `<tr><td>${DATA.companies[id].short} ${y}${flag}</td>
+      <td>${(m*100).toFixed(2)}%</td><td class="mul">×</td><td>${t.toFixed(3)}</td><td class="mul">×</td><td>${e.toFixed(3)}</td>
+      <td style="color:${DATA.companies[id].color};font-weight:500">${(roeV*100).toFixed(2)}%</td></tr>`;
+  }).join("");
+  document.getElementById("dupont").innerHTML=`<table>
+    <tr><th>Company-year</th><th>Net margin</th><th></th><th>Asset turnover</th><th></th><th>Equity multiplier</th><th>= ROE</th></tr>
+    ${body}</table>
+    <p class="lede" style="margin-top:18px">Read Ibn Sina 2024 across: a 5.9% margin, multiplied by turnover of 1.75 and a multiplier of 1.84, produces 19.0%. Square's much richer 26.1% margin is dragged down by turnover of 0.53 and almost no leverage, landing at 14.7%. Ibn Sina wins on ROE by working assets harder and borrowing — both of which raise risk, which is why its current ratio of 1.13 belongs in the same sentence.</p>`;
+})();
+
+/* ---------- findings ---------- */
+document.getElementById("findings").innerHTML = `
+<div class="fbox"><h3>What checks out</h3><ul>
+  <li><b>Both balance sheets tie.</b> Assets equal liabilities plus equity, and the current and non-current splits sum correctly, for all four company-years.</li>
+  <li><b>Eleven of twelve ratios recompute exactly</b> from the Raw Data figures, to full floating-point precision.</li>
+  <li><b>The formula column matches what was calculated</b> in every row — the labels are honest.</li>
+  <li><b>DuPont reconciles to direct ROE</b> for three of four company-years as written, and for all four once the one bad input is fixed.</li>
+</ul></div>
+
+<div class="fbox alert"><h3>Errors and open issues</h3><ol>
+  <li><b>Square's 2023 net profit margin is wrong.</b> The cell divides profit before tax by revenue (36.11%) instead of net profit by revenue (28.19%). Correcting it also repairs the DuPont row, and it reverses the reading of the year: the margin declined by 2.1 points rather than collapsing by 10.</li>
+  <li><b>Ibn Sina's cash figure is identical in both years</b> — 365,229,893 taka in 2023 and 2024, to the taka. That is almost certainly a copy-down error. Check it against the annual report.</li>
+  <li><b>The Dashbord Data sheet contains hardcoded rounded values</b> (0.46, 0.21, 0.15, 0.20, 0.19) sitting beside the linked ones. Any chart bound to them stays frozen when the underlying figures change. The charts should point at the Ratio Calculation sheet instead.</li>
+  <li><b>The Conclusion sheet is empty</b> apart from two company headings, so the workbook calculates the comparison without ever stating what it found. The DuPont decomposition below is the argument that belongs there.</li>
+  <li><b>Ratios use year-end balances, not averages.</b> Acceptable and common, but state it — ROE and asset turnover both mix a flow (a full year of profit or revenue) with a single-day stock figure.</li>
+  <li><b>Spelling in sheet names and labels.</b> &ldquo;Dashbord&rdquo;, &ldquo;Ibna Sina&rdquo;, &ldquo;Libailities&rdquo;, &ldquo;Liablities&rdquo;, &ldquo;Earnig Per Share&rdquo;. Cosmetic, but they are the first thing a reader notices.</li>
+</ol></div>
+
+<div class="fbox"><h3>Gaps in the ratio set</h3><ul>
+  <li><b>An interest coverage ratio.</b> Square's is roughly 571,000×; Ibn Sina's is 18×. Nothing else in the set captures that difference as sharply.</li>
+  <li><b>A quick ratio.</b> With Ibn Sina's current ratio at 1.13, stripping out inventory would show whether it can actually meet near-term obligations.</li>
+  <li><b>The gap between operating profit and profit before tax.</b> Square's PBT exceeds its operating profit by 3.93bn — substantial non-operating income that no current ratio explains.</li>
+  <li><b>Effective tax rates.</b> Already computed on the cards above: 21.6% for Square, 25.0% for Ibn Sina. A three-point difference at this scale is material and currently goes unmentioned.</li>
+</ul></div>
+
+<div class="fbox"><h3>Outside the scope of this check</h3><ul>
+  <li><b>Whether the Raw Data figures match the published annual reports.</b> Everything here was checked for internal consistency only. The source filings were not consulted, so a figure that is wrong in the same way in every place it appears would pass every test on this page.</li>
+  <li><b>Share counts.</b> Both are identical across years, which is plausible but unconfirmed, and both are stated as fully paid ordinary shares at Tk. 10 par.</li>
+  <li><b>Whether "Net Revenue" for Square and "Revenue" for Ibn Sina are on the same basis</b> — gross versus net of VAT or discounts. If they differ, every margin comparison between the two shifts.</li>
+</ul></div>`;
+
+/* ---------- theme + stamp ---------- */
+(function(){
+  const btn=document.getElementById("themeBtn");
+  const set=t=>{document.documentElement.setAttribute("data-theme",t); btn.textContent=t==="dark"?"Light":"Dark";};
+  let cur = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark":"light";
+  try{ const saved=localStorage.getItem("fsa-theme"); if(saved) cur=saved; }catch(e){}
+  set(cur);
+  btn.addEventListener("click",()=>{
+    cur = cur==="dark" ? "light":"dark"; set(cur);
+    try{ localStorage.setItem("fsa-theme",cur); }catch(e){}
+  });
+  document.getElementById("stamp").textContent =
+    "Workbook inspected 18 September 2026. Page generated from Financial_Statement_Analysis.xlsx — 5 sheets, 12 ratios, 2 companies, 2 financial years.";
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "source_file": "Financial_Statement_Analysis.xlsx",
+    "sheets": ["Raw Data", "Ratio Calculation", "Dashbord Data", "Dashbord", "Conclusion"],
+    "currency": "BDT",
+    "years": [2023, 2024],
+    "inspected": "2026-09-18",
+    "note": "All figures transcribed from the 'Raw Data' sheet. All ratios independently recomputed from those figures; workbook values retained alongside where they differ."
+  },
+  "companies": [
+    {
+      "id": "SQ",
+      "name": "Square Pharmaceuticals",
+      "short": "Square",
+      "raw": {
+        "2024": {
+          "non_current_assets": 42273928338,
+          "current_assets": 69735986410,
+          "total_assets": 112009914748,
+          "current_liabilities": 5589045579,
+          "non_current_liabilities": 625749549,
+          "total_liabilities": 6214795128,
+          "total_equity": 105795119620,
+          "cash": 52305603356,
+          "revenue": 59794584816,
+          "gross_profit": 27267821084,
+          "operating_profit": 15960600763,
+          "profit_before_tax": 19887843068,
+          "net_profit": 15591371906,
+          "finance_cost": 27943,
+          "shares": 886451010
+        },
+        "2023": {
+          "non_current_assets": 34585613547,
+          "current_assets": 70169514926,
+          "total_assets": 104755128473,
+          "current_liabilities": 3212077810,
+          "non_current_liabilities": 1026086605,
+          "total_liabilities": 4238164415,
+          "total_equity": 100516964058,
+          "cash": 50079192249,
+          "revenue": 58419084978,
+          "gross_profit": 28034308091,
+          "operating_profit": 17874695253,
+          "profit_before_tax": 21097122423,
+          "net_profit": 16470227513,
+          "finance_cost": 21966,
+          "shares": 886451010
+        }
+      }
+    },
+    {
+      "id": "IB",
+      "name": "Ibn Sina Pharmaceuticals",
+      "short": "Ibn Sina",
+      "raw": {
+        "2024": {
+          "non_current_assets": 3888791104,
+          "current_assets": 2620323446,
+          "total_assets": 6509114550,
+          "current_liabilities": 2318099470,
+          "non_current_liabilities": 657654587,
+          "total_liabilities": 2975754057,
+          "total_equity": 3533360493,
+          "cash": 365229893,
+          "revenue": 11370922344,
+          "gross_profit": 4531507148,
+          "operating_profit": 960060692,
+          "profit_before_tax": 894698822,
+          "net_profit": 671350473,
+          "finance_cost": 53580520,
+          "shares": 31243627
+        },
+        "2023": {
+          "non_current_assets": 3169096180,
+          "current_assets": 1836444762,
+          "total_assets": 5005540942,
+          "current_liabilities": 1461481620,
+          "non_current_liabilities": 488243171,
+          "total_liabilities": 1949724791,
+          "total_equity": 3055816151,
+          "cash": 365229893,
+          "revenue": 9125331307,
+          "gross_profit": 3871099631,
+          "operating_profit": 860364720,
+          "profit_before_tax": 804731983,
+          "net_profit": 605808719,
+          "finance_cost": 44431461,
+          "shares": 31243627
+        }
+      }
+    }
+  ],
+  "ratios": [
+    {
+      "key": "cr",
+      "name": "Current ratio",
+      "group": "Liquidity",
+      "formula": "Current assets \u00f7 Current liabilities",
+      "unit": "x",
+      "values": { "SQ": { "2023": 21.845521521161405, "2024": 12.477262069935966 }, "IB": { "2023": 1.2565637069045041, "2024": 1.1303757582067866 } },
+      "status": "verified",
+      "reading": "Square holds about 12.5 taka of current assets per taka of current liabilities, down from 21.8 as current liabilities rose 74% while current assets edged down. Ibn Sina sits just above 1.1, so almost all of its short-term assets are spoken for by short-term obligations."
+    },
+    {
+      "key": "gpm",
+      "name": "Gross profit margin",
+      "group": "Profitability",
+      "formula": "Gross profit \u00f7 Revenue",
+      "unit": "%",
+      "values": { "SQ": { "2023": 0.47988269760742436, "2024": 0.45602492546622048 }, "IB": { "2023": 0.4242146943235362, "2024": 0.39851711329214229 } },
+      "status": "verified",
+      "reading": "Both lost roughly 2.4 to 2.6 percentage points of gross margin in one year, which points at a shared input-cost or pricing pressure rather than a company-specific problem."
+    },
+    {
+      "key": "opm",
+      "name": "Operating profit margin",
+      "group": "Profitability",
+      "formula": "Operating profit \u00f7 Revenue",
+      "unit": "%",
+      "values": { "SQ": { "2023": 0.30597355743814575, "2024": 0.26692384957791726 }, "IB": { "2023": 0.094283121462123587, "2024": 0.08443120645411735 } },
+      "status": "verified",
+      "reading": "Square converts about a quarter of revenue into operating profit; Ibn Sina under a tenth. Square's fall is steeper than its gross-margin fall, so operating expenses grew faster than sales."
+    },
+    {
+      "key": "npm",
+      "name": "Net profit margin",
+      "group": "Profitability",
+      "formula": "Net profit \u00f7 Revenue",
+      "unit": "%",
+      "values": { "SQ": { "2023": 0.2819321166113355, "2024": 0.2607488948033973 }, "IB": { "2023": 0.0663875862277227, "2024": 0.059040986534768303 } },
+      "status": "corrected",
+      "workbook_value": { "SQ": { "2023": 0.36113407854547791 } },
+      "reading": "The 2023 figure for Square in the workbook is 36.11%, which is profit before tax divided by revenue, not net profit. Recomputed from net profit it is 28.19%. That single cell also propagates into the DuPont row."
+    },
+    {
+      "key": "dr",
+      "name": "Debt ratio",
+      "group": "Leverage",
+      "formula": "Total liabilities \u00f7 Total assets",
+      "unit": "%",
+      "values": { "SQ": { "2023": 0.040457822703089528, "2024": 0.055484330489689697 }, "IB": { "2023": 0.38951330407477863, "2024": 0.45716725894768589 } },
+      "status": "verified",
+      "reading": "Creditors fund about 5.5% of Square's balance sheet and about 46% of Ibn Sina's. Both moved the same direction, but Ibn Sina added 6.8 percentage points in a single year."
+    },
+    {
+      "key": "de",
+      "name": "Debt-to-equity ratio",
+      "group": "Leverage",
+      "formula": "Total liabilities \u00f7 Total equity",
+      "unit": "x",
+      "values": { "SQ": { "2023": 0.042163673114465602, "2024": 0.058743684494356643 }, "IB": { "2023": 0.63803733426893583, "2024": 0.84218807078850755 } },
+      "status": "verified",
+      "reading": "Ibn Sina now owes 0.84 taka for every taka of equity, up from 0.64. Square is effectively unlevered."
+    },
+    {
+      "key": "tat",
+      "name": "Total asset turnover",
+      "group": "Efficiency",
+      "formula": "Revenue \u00f7 Total assets",
+      "unit": "x",
+      "values": { "SQ": { "2023": 0.55767279205864528, "2024": 0.53383296425611881 }, "IB": { "2023": 1.8230459829889849, "2024": 1.7469230655957653 } },
+      "status": "verified",
+      "reading": "Ibn Sina generates about 3.3 times more revenue per taka of assets. Much of Square's gap is structural: 75% of its current assets are cash, which sits on the balance sheet without producing sales."
+    },
+    {
+      "key": "roe",
+      "name": "Return on equity",
+      "group": "Returns",
+      "formula": "Net profit \u00f7 Total equity",
+      "unit": "%",
+      "values": { "SQ": { "2023": 0.16385520262526432, "2024": 0.14737326222610117 }, "IB": { "2023": 0.19824776395718446, "2024": 0.19000339035035449 } },
+      "status": "verified",
+      "reading": "The headline reversal in this analysis: the far less profitable company returns more to shareholders, because leverage and asset turnover more than offset its thin margin."
+    },
+    {
+      "key": "roa",
+      "name": "Return on assets",
+      "group": "Returns",
+      "formula": "Net profit \u00f7 Total assets",
+      "unit": "%",
+      "values": { "SQ": { "2023": 0.15722597788847256, "2024": 0.13919635543940445 }, "IB": { "2023": 0.12102762239278474, "2024": 0.10314006119311574 } },
+      "status": "verified",
+      "reading": "Strip out leverage and the ordering flips back: Square earns more per taka of assets. Ibn Sina's ROE advantage is borrowed, not operational."
+    },
+    {
+      "key": "eps",
+      "name": "Earnings per share",
+      "group": "Returns",
+      "formula": "Net profit \u00f7 Ordinary shares outstanding",
+      "unit": "BDT",
+      "values": { "SQ": { "2023": 18.579963615812225, "2024": 17.588531943801385 }, "IB": { "2023": 19.38983329304245, "2024": 21.487597230628825 } },
+      "status": "verified",
+      "reading": "Ibn Sina's EPS is higher only because it has 28 times fewer shares. EPS compares a company to its own past, not to another company with a different share count."
+    },
+    {
+      "key": "em",
+      "name": "Equity multiplier",
+      "group": "Leverage",
+      "formula": "Total assets \u00f7 Total equity",
+      "unit": "x",
+      "values": { "SQ": { "2023": 1.0421636731144657, "2024": 1.0587436844943567 }, "IB": { "2023": 1.6380373342689358, "2024": 1.8421880707885077 } },
+      "status": "verified",
+      "reading": "Ibn Sina's assets are 1.84 times its equity and rising; Square's are barely above 1.0."
+    },
+    {
+      "key": "dup",
+      "name": "DuPont ROE",
+      "group": "Returns",
+      "formula": "Net profit margin \u00d7 Total asset turnover \u00d7 Equity multiplier",
+      "unit": "%",
+      "values": { "SQ": { "2023": 0.16385520262526432, "2024": 0.1473732622261012 }, "IB": { "2023": 0.19824776395718446, "2024": 0.19000339035035449 } },
+      "status": "corrected",
+      "workbook_value": { "SQ": { "2023": 0.20988618807494624 } },
+      "reading": "The workbook shows 20.99% for Square in 2023 against a directly computed ROE of 16.39%. DuPont must reconcile exactly to ROE by construction, so the gap was a signal that an input was wrong. It was the 2023 net profit margin. With that fixed, DuPont reconciles for all four company-years."
+    }
+  ]
+}
